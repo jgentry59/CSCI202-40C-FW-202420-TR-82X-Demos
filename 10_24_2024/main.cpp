@@ -88,4 +88,33 @@ std::string getIcing()
         std::transform(icingLower.begin(), icingLower.end(), icingLower.begin(), ::tolower);
     }
     return ice;
+    
+    std::string getDrizzle() //start
+{
+    std::string driz;
+    std::cout << "Choose your drizzle from the choices below:" << std::endl;
+    for (std::map<Donut::drizzleType, std::string>::iterator it = Donut::drizToStr.begin(); it != Donut::drizToStr.end(); ++it)
+    {
+        std::cout << it->second << std::endl;
+    }
+    std::cin >> std::ws;
+    std::getline(std::cin, driz);
+    std::string drizzleLower = driz;
+    std::transform(drizzleLower.begin(), drizzleLower.end(), drizzleLower.begin(), ::tolower);
+    while (!Donut::strToDriz.count(drizzleLower))
+    {
+        std::cout << driz << " is not a valid drizzle choice." << std::endl;
+        std::cout << "Choose your drizzle from the choices below:" << std::endl;
+        for (std::map<Donut::drizzleType, std::string>::iterator it = Donut::drizToStr.begin(); it != Donut::drizToStr.end(); ++it)
+        {
+            std::cout << it->second << std::endl;
+        }
+        std::cin >> std::ws;
+        std::getline(std::cin, driz);
+        drizzleLower = driz;
+        std::transform(drizzleLower.begin(), drizzleLower.end(), drizzleLower.begin(), ::tolower);
+    }
+    return drizzle; //end
+    }
+    
 }
