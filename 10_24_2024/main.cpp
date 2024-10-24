@@ -9,7 +9,7 @@ void resetStream();
 void codeGradeLoopFix(std::string errLocation);
 std::string getIcing();
 std::string getTopping(std::string);
-std::string getDrizzle();
+std::string getDrizzle(); // complete for the lecture activity
 int main()
 {
     Donut **order;
